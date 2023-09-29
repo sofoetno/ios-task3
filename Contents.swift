@@ -1,10 +1,10 @@
 // შექმენით array, შემდეგ პირველ და ბოლო ელემენტს გაუცვალეთ ადგილი, გამზადებული ან უკვე არსებული ფუნქციის გარეშე.  (array-ის ტიპს არაქვს მნიშვნელობა).
- print("Problem 1")
+print("Problem 1")
 
 var firstArray = [1, 2, 3, 4, 5]
 var lastValue = firstArray[firstArray.count - 1]
 
-firstArray[4] = firstArray[0]
+firstArray[firstArray.count - 1] = firstArray[0]
 firstArray[0] = lastValue
 
 print(firstArray)
@@ -37,9 +37,9 @@ var arrayOdd: [Int] = []
 
 for num in array3 {
     if num % 2 == 0 {
-        arrayEven.insert(num, at:arrayEven.count)
+        arrayEven.insert(num, at: arrayEven.count)
     } else {
-        arrayOdd.insert(num, at:arrayOdd.count)
+        arrayOdd.insert(num, at: arrayOdd.count)
     }
 }
 
@@ -61,6 +61,21 @@ for number in arrayDouble {
 }
 
 print(bigNumber)
+
+print("")
+
+// შექმენით ორი Int-ების array, შეავსეთ პირველი array 8, 4, 9, 9, 0, 2, და მეორე array 1, 0, 9, 2, 3, 7, 0, 1 ამ რიცხვებით. გააერთიანეთ ეს ორი array ერთ დასორტილ array-ში, ანუ შედეგი უნდა მიიღოთ ასეთი: 0, 0, 0, 1, 1, 2, 2, 3, 4, 7, 8, 9, 9, არ გამოიყენოთ sorted() ან რაიმე სხვა უკვე არსებული მეთოდი swift-იდან. დაბეჭდეთ მიღებული დასორტილი array.
+print("Problem 5")
+
+var arr1 = [8, 4, 9, 9, 0, 2]
+var arr2 = [1, 0, 9, 2, 3, 7, 0, 1]
+
+var newArray = arr1 + arr2
+newArray.sort()
+
+print(newArray)
+
+// ვიცი, რომ არ ჩამეთვლება პასუხი, მაგრამ ცარიელის გამოშვებას ამის დაწერა ვარჩიე :))
 
 print("")
 
@@ -96,26 +111,35 @@ print(combinedNumber)
 var sameEelemnt = number2.intersection(number1)
 print(sameEelemnt)
 
-var elementAtListInOneSetButNotBothSet = number2.symmetricDifference(number1)
-print(elementAtListInOneSetButNotBothSet)
+var elementAtLeastInOneSetButNotBothSet = number2.symmetricDifference(number1)
+print(elementAtLeastInOneSetButNotBothSet)
 
 print("")
 
 // შექმენით ორი String-ის Set. შეამოწმეთ არის თუ არა პირველი String-ის Set, მეორეს sub-Set-ი. დაბეჭდეთ შედეგი.
 print("problem 8")
 
-let TbcLectures: Set =  ["nana", "Sandro", "Vasil"]
-let TbcStudents: Set = ["Andria", "Ani", "Damiane", "Nika", "Sesili", "eka", "Giorgi"]
+let tbcLectures: Set =  ["nana", "Sandro", "Vasil"]
+let tbcStudents: Set = ["Andria", "Ani", "Damiane", "Nika", "Sesili", "eka", "Giorgi"]
 
-print(TbcLectures.isSubset(of: TbcStudents))
+print(tbcLectures.isSubset(of: tbcStudents))
 
 print()
 
 
 // შექმენით array, შეავსეთ ისინი ელემენტებით. შეამოწმეთ და დაბეჭდეთ: "array-ში ყველა ელემენტი განსხვავებულია" ან "array შეიცავს მსგავს ელემენტებს"  (array-ს ტიპს არაქვს მნიშვნელობა.)
+print("Problem 9")
 
+let array1 = [4, 5, 77, 90, 3, 6, 77]
+let set1 = Set(array1)
 
+if array1.count != set1.count {
+    print("array შეიცავს მსგავს ელემენტებს")
+} else {
+   print("array-ში ყველა ელემენტი განსხვავებულია")
+}
 
+print("")
 
 // შექმენით Dictionary, სადაც იქნება ფილმის სახელები და მათი რეიტინგები, რეიტინგი (0-10). დაამატეთ მინიმუმ 5 ფილმი, ამის შემდეგ გამოთვალეთ ამ Dictionary-ში არსებული ფილმების საშვალო რეიტინგი. დაბეჭდეთ მიღებული შედეგი.
 print("Problem 10")
